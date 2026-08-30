@@ -6,7 +6,9 @@
 
 - 知识专题：从网页基础到 AI 工作流的核心概念
 - 学习路径：按“用好 AI、做 AI 工具、做 AI 工作流”组织
-- 跟做项目：答案之书、图片反推 Prompt、研究到报告与 HTML Deck
+- 跟做项目：答案之书、图片反推 Prompt、研究到报告与 HTML Deck、个人内容工作台
+- 开始这里：为零基础用户准备 Coding 工具、文件夹和第一个网页
+- 四个可运行成品 Demo，可先体验再跟做
 - 本地学习进度、逐项 To-Do、可复制任务和完成检查
 
 ## 本地运行
@@ -44,4 +46,3 @@ npm run cf:deploy
 ```
 
 项目基于 vinext 和 Cloudflare Vite 插件构建，部署配置会在构建阶段生成到 `dist/server/wrangler.json`。
-

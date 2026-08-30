@@ -38,7 +38,7 @@ export default function Home() {
         <p className="text-sm font-medium text-[hsl(212_100%_41%)]">给第一次系统学习 AI 的人</p>
         <h1 className="mt-5 max-w-2xl text-4xl leading-[1.08] font-semibold tracking-[-0.05em] text-balance sm:text-5xl md:text-6xl">只用过豆包，也可以从这里开始</h1>
         <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-500">先学会说清任务、修改结果和检查答案，再决定要不要做工具。</p>
-        <Link href="/methods/use-ai" className={cn(buttonVariants({ size: 'lg' }), 'mt-8 w-fit')}>开始零基础路径<ArrowRight /></Link>
+        <Link href="/start" className={cn(buttonVariants({ size: 'lg' }), 'mt-8 w-fit')}>从这里开始<ArrowRight /></Link>
         <p className="mt-4 text-sm text-neutral-400">不知道怎么选，直接点这个就可以。</p>
       </div>
 
@@ -86,7 +86,7 @@ export default function Home() {
           <Link href="/projects/book-of-answers" className={cn(buttonVariants({ size: 'lg' }), 'mt-6 w-full')}>开始做答案之书<ArrowRight /></Link>
         </div>
       </div>
-      <Link href="/projects" className="mt-6 inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-black">查看全部三个项目<ArrowRight className="size-4" /></Link>
+      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3"><Link href="/projects" className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-black">查看全部四个项目<ArrowRight className="size-4" /></Link><Link href="/demos" className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-black">先体验成品 Demo<ArrowRight className="size-4" /></Link></div>
     </section>
 
     <SiteFooter />

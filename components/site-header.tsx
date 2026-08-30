@@ -7,9 +7,11 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const nav = [
+  ['开始这里', '/start'],
   ['知识专题', '/concepts'],
   ['学习路径', '/methods'],
   ['跟做项目', '/projects'],
+  ['成品 Demo', '/demos'],
 ];
 
 export function SiteHeader() {
@@ -32,13 +34,13 @@ export function SiteHeader() {
         </nav>
 
         <Link
-          href="/projects/book-of-answers"
+          href="/start"
           className={cn(
             buttonVariants({ variant: 'outline' }),
             'hidden md:inline-flex',
           )}
         >
-          开始跟做
+          从这里开始
         </Link>
 
         <details className="group relative md:hidden">
@@ -47,7 +49,7 @@ export function SiteHeader() {
           </summary>
           <nav className="absolute top-12 right-0 z-30 w-56 rounded-lg border border-black/10 bg-white p-2 shadow-[0_16px_32px_rgba(0,0,0,.08)]" aria-label="移动端导航">
             {nav.map(([label, href]) => <Link key={href} href={href} className="block rounded-md px-3 py-2.5 text-sm text-neutral-700 hover:bg-black/[.04]">{label}</Link>)}
-            <Link href="/projects/book-of-answers" className="mt-1 block rounded-md bg-[#1d1d1f] px-3 py-2.5 text-center text-sm font-medium text-white">开始第一个项目</Link>
+            <Link href="/start" className="mt-1 block rounded-md bg-[#1d1d1f] px-3 py-2.5 text-center text-sm font-medium text-white">从这里开始</Link>
           </nav>
         </details>
       </div>

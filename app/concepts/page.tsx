@@ -1,20 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Braces, Clock3, FlaskConical } from 'lucide-react';
+import { ArrowRight, Braces } from 'lucide-react';
 
 import { ConceptBrowser } from '@/components/concept-browser';
+import { TopicCatalog } from '@/components/topic-catalog';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { topics } from '@/lib/learning-content.mjs';
 import { concepts } from '@/lib/site-content';
 
 export const metadata: Metadata = { title: 'AI 知识专题', description: '用完整文章和动手实验，理解真正影响 AI 使用与项目制作的核心概念。' };
-
-const groups = [
-  { name: '原理层', title: '先看懂 AI 为什么这样工作', description: '理解生成、上下文、记忆、幻觉、工具和工作流。' },
-  { name: '应用层', title: '再把原理用进真实任务', description: '从说清需求到反复修改，再把成功对话沉淀成流程。' },
-  { name: '项目层', title: '准备做项目时，再补这些知识', description: '理解 API、结构化输出、多模态、知识库、成本和数据边界。' },
-] as const;
 
 export default function ConceptsPage() {
   return (
@@ -33,32 +28,7 @@ export default function ConceptsPage() {
         </div>
       </section>
 
-      {groups.map((group, groupIndex) => {
-        const items = topics.filter((topic) => topic.category === group.name);
-        return <section key={group.name} className={groupIndex % 2 === 0 ? 'border-y border-black/[.08] bg-[#fafafa]' : 'border-b border-black/[.08] bg-white'}>
-          <div className="mx-auto max-w-6xl border-x border-black/[.06] px-5 py-16 md:px-8 md:py-20">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium text-[hsl(212_100%_41%)]">{group.name}</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">{group.title}</h2>
-              <p className="mt-4 leading-7 text-neutral-500">{group.description}</p>
-            </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              {items.map((topic) => <Link key={topic.slug} href={`/concepts/${topic.slug}`} className="group rounded-xl border border-black/[.08] bg-white p-5 transition hover:border-black/20 hover:bg-black/[.012] sm:p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="flex size-9 items-center justify-center rounded-md border border-black/[.08] bg-[#fafafa] text-[hsl(212_100%_41%)]"><BookOpen className="size-4" /></span>
-                  <span className="flex items-center gap-1.5 text-xs text-neutral-400"><Clock3 className="size-3.5" />约 10 分钟</span>
-                </div>
-                <h3 className="mt-6 text-xl font-semibold tracking-[-0.025em]">{topic.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-neutral-500">{topic.question}</p>
-                <div className="mt-5 flex items-center justify-between border-t border-black/[.06] pt-4 text-xs">
-                  <span className="flex items-center gap-1.5 text-neutral-500"><FlaskConical className="size-3.5" />包含动手实验</span>
-                  <ArrowRight className="size-4 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-black" />
-                </div>
-              </Link>)}
-            </div>
-          </div>
-        </section>;
-      })}
+      <section className="border-y border-black/[.08] bg-[#fafafa]"><div className="mx-auto max-w-6xl border-x border-black/[.06] px-5 py-16 md:px-8 md:py-20"><TopicCatalog topics={topics} /></div></section>
 
       <section className="bg-[#fafafa]">
         <div className="mx-auto max-w-6xl border-x border-black/[.06] px-5 py-16 md:px-8 md:py-20">
