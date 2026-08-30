@@ -21,7 +21,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = getProject((await params).slug);
   if (!project) notFound();
   return (
-    <main className="min-h-dvh bg-background">
+    <main className="consumer-page min-h-dvh">
       <SiteHeader />
       <section className="border-b border-black/[.08] bg-[#fafafa]">
         <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">

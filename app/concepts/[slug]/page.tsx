@@ -19,7 +19,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   if (!topic) notFound();
   const nextTopic = getTopic(topic.next);
 
-  return <main className="min-h-dvh bg-white text-[#1d1d1f]">
+  return <main className="consumer-page min-h-dvh">
     <SiteHeader />
     <article>
       <header className="border-b border-black/[.08] bg-[#fafafa]">

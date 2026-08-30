@@ -15,7 +15,7 @@ const stages = [
 ] as const;
 
 export default function CasesPage() {
-  return <main className="min-h-dvh bg-background"><SiteHeader />
+  return <main className="consumer-page min-h-dvh"><SiteHeader />
     <section className="mx-auto max-w-7xl px-5 pt-16 pb-20 md:px-8 md:pt-24 lg:px-10">
       <div className="w-full max-w-3xl min-w-0 overflow-hidden"><p className="text-sm font-medium text-sky-700">案例拆解</p><h1 className="mt-4 break-all text-4xl font-semibold tracking-[-0.04em] md:text-6xl">先看懂分工，再决定是否值得做</h1><p className="mt-6 max-w-2xl break-all text-lg leading-8 text-slate-600">这些不是待售产品，也不是个人项目展示。它们用同一套结构说明：什么交给 AI，什么交给规则，哪些判断必须由人完成。</p></div>
       <div className="mt-16 space-y-6">

@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-30T18:34:00Z",
+  "title": "Design System: AI 项目实验室",
+  "extensions": {
+    "colorMeta": {
+      "route-purple": {
+        "role": "primary",
+        "displayName": "路线紫",
+        "tonalRamp": [
+          "#211b68",
+          "#302791",
+          "#4036bf",
+          "#5146d8",
+          "#756de3",
+          "#a29cec",
+          "#d9d5ff",
+          "#f2f1ff"
+        ]
+      },
+      "route-purple-soft": {
+        "role": "primary",
+        "displayName": "浅长春花紫",
+        "tonalRamp": [
+          "#292452",
+          "#40386f",
+          "#625aa8",
+          "#8d85ce",
+          "#bcb7e9",
+          "#d9d5ff",
+          "#eeecff",
+          "#f8f8ff"
+        ]
+      },
+      "ink-blue": {
+        "role": "neutral",
+        "displayName": "墨蓝",
+        "tonalRamp": [
+          "#151928",
+          "#252c48",
+          "#27304a",
+          "#46506c",
+          "#697086",
+          "#9ba0b2",
+          "#cfd2e5",
+          "#f1f2f8"
+        ]
+      },
+      "periwinkle-field": {
+        "role": "neutral",
+        "displayName": "长春花纸底",
+        "tonalRamp": [
+          "#26253f",
+          "#48466d",
+          "#6f6ba0",
+          "#9a96c6",
+          "#c8c4e9",
+          "#e9e6ff",
+          "#f1f0ff",
+          "#f8f8ff"
+        ]
+      },
+      "sunny-yellow": {
+        "role": "secondary",
+        "displayName": "阳光黄",
+        "tonalRamp": [
+          "#40350e",
+          "#6e5510",
+          "#8d701b",
+          "#b89632",
+          "#d8bd5b",
+          "#ffe58a",
+          "#fff0b8",
+          "#fff8df"
+        ]
+      },
+      "coral-marker": {
+        "role": "secondary",
+        "displayName": "珊瑚标记",
+        "tonalRamp": [
+          "#4b1e18",
+          "#7a3026",
+          "#a94334",
+          "#d6523c",
+          "#ff8066",
+          "#ffa999",
+          "#ffd0c7",
+          "#fff0ec"
+        ]
+      },
+      "mint-marker": {
+        "role": "tertiary",
+        "displayName": "薄荷标记",
+        "tonalRamp": [
+          "#153d2e",
+          "#1b6248",
+          "#21875f",
+          "#37a477",
+          "#63bd94",
+          "#96d5b4",
+          "#c8ead9",
+          "#e9f8f1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "首页承诺",
+        "purpose": "首页首屏的唯一大标题。"
+      },
+      "headline": {
+        "displayName": "章节标题",
+        "purpose": "目标区与项目邀请等主要章节标题。"
+      },
+      "title": {
+        "displayName": "卡片标题",
+        "purpose": "路线节点与学习目标标题。"
+      },
+      "body": {
+        "displayName": "解释正文",
+        "purpose": "用宽松行高承载学习说明。"
+      },
+      "label": {
+        "displayName": "路线标签",
+        "purpose": "导航、状态、按钮和使用 UI 无衬线字体的项目路径编号。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "brand-marker",
+        "value": "0 8px 20px rgb(81 70 216 / .22)",
+        "purpose": "品牌符号的柔和紫色浮层。"
+      },
+      {
+        "name": "primary-action",
+        "value": "0 12px 28px rgb(81 70 216 / .24)",
+        "purpose": "唯一主行动的环境阴影。"
+      },
+      {
+        "name": "paper-high",
+        "value": "0 28px 70px rgb(43 45 98 / .14)",
+        "purpose": "学习路线图的纸张高层。"
+      },
+      {
+        "name": "popover",
+        "value": "0 18px 45px rgb(43 45 98 / .16)",
+        "purpose": "移动导航菜单。"
+      },
+      {
+        "name": "ticket-high",
+        "value": "0 24px 56px rgb(28 35 67 / .2)",
+        "purpose": "深墨蓝项目票据。"
+      },
+      {
+        "name": "interactive-lift",
+        "value": "0 16px 30px rgb(43 45 98 / .11)",
+        "purpose": "目标路线悬停抬升。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "state",
+        "value": "0.2s ease",
+        "purpose": "导航背景、文字和阴影状态。"
+      },
+      {
+        "name": "lift",
+        "value": "0.25s cubic-bezier(.2,.8,.2,1)",
+        "purpose": "目标路线的 3px 悬停抬升。"
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "prefers-reduced-motion 下把全局过渡压缩到近乎即时。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-navigation",
+        "value": "980px"
+      },
+      {
+        "name": "single-column",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "每个视口唯一的推荐下一步；项目页的成品 Demo 入口也复用路线紫主按钮。",
+      "html": "<a class=\"ds-button-primary\" href=\"#\">从这里开始 <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-button-primary { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-width:150px; height:48px; padding:0 20px; border:0; border-radius:12px; background:#5146d8; color:#fff; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; font-size:16px; font-weight:500; text-decoration:none; box-shadow:0 12px 28px rgb(81 70 216 / .24); transition:background .2s ease; } .ds-button-primary:hover { background:#4036bf; } .ds-button-primary:focus-visible { outline:3px solid rgb(81 70 216 / .28); outline-offset:4px; }"
+    },
+    {
+      "name": "Secondary Start Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "桌面头部中的低强度开始入口。",
+      "html": "<a class=\"ds-button-secondary\" href=\"#\">从这里开始</a>",
+      "css": ".ds-button-secondary { display:inline-flex; align-items:center; padding:10px 15px; border:1px solid #d7d4f3; border-radius:12px; background:#fff; color:#4036bf; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; font-size:13px; font-weight:700; text-decoration:none; transition:border-color .2s ease,background .2s ease; } .ds-button-secondary:hover { border-color:#aaa4e7; background:#f5f3ff; } .ds-button-secondary:focus-visible { outline:3px solid rgb(81 70 216 / .28); outline-offset:4px; }"
+    },
+    {
+      "name": "Route Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "浅紫轨道内的紧凑桌面导航。",
+      "html": "<nav class=\"ds-route-nav\" aria-label=\"主导航\"><a aria-current=\"page\" href=\"#\">开始这里</a><a href=\"#\">知识专题</a><a href=\"#\">跟做项目</a></nav>",
+      "css": ".ds-route-nav { display:flex; align-items:center; gap:3px; padding:4px; border-radius:14px; background:#eeecff; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; } .ds-route-nav a { padding:8px 12px; border-radius:10px; color:#656b80; font-size:13px; font-weight:650; text-decoration:none; transition:background .2s ease,color .2s ease,box-shadow .2s ease; } .ds-route-nav a:hover { color:#4036bf; } .ds-route-nav a[aria-current=\"page\"] { background:#fff; color:#4036bf; box-shadow:0 3px 10px rgb(47 42 128 / .1); } .ds-route-nav a:focus-visible { outline:3px solid rgb(81 70 216 / .28); outline-offset:4px; }"
+    },
+    {
+      "name": "Learning Map",
+      "kind": "custom",
+      "refersTo": "card-route-map",
+      "description": "用紫、珊瑚与薄荷节点表达三站学习路线的签名卡片。",
+      "html": "<section class=\"ds-learning-map\"><div class=\"ds-map-heading\"><span>你的学习路线</span><strong>推荐从 01 开始</strong></div><ol><li><b>01</b><div><strong>先认识</strong><p>看懂 AI 产品的基本组成</p></div></li><li><b>02</b><div><strong>再跟做</strong><p>照着步骤完成小项目</p></div></li><li><b>03</b><div><strong>最后完成</strong><p>把作品变成可分享成果</p></div></li></ol></section>",
+      "css": ".ds-learning-map { position:relative; width:min(100%,420px); padding:26px 26px 22px; border-radius:28px; background:#fff; color:#27304a; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; box-shadow:0 28px 70px rgb(43 45 98 / .14); transform:rotate(1.4deg); } .ds-learning-map::before { position:absolute; top:-16px; left:50%; width:92px; height:30px; border-radius:6px; background:rgb(255 214 107 / .8); content:\"\"; transform:translateX(-50%) rotate(-3deg); } .ds-map-heading { display:flex; justify-content:space-between; gap:12px; padding-bottom:18px; border-bottom:1px dashed #d9daea; color:#73798e; font-size:13px; } .ds-map-heading strong { color:#5146d8; font-size:12px; } .ds-learning-map ol { position:relative; margin:4px 0 0; padding:0; list-style:none; } .ds-learning-map ol::before { position:absolute; top:38px; bottom:38px; left:20px; width:3px; border-radius:3px; background:#d9d5ff; content:\"\"; } .ds-learning-map li { position:relative; display:grid; grid-template-columns:42px 1fr; gap:15px; align-items:center; min-height:92px; } .ds-learning-map li>b { z-index:1; display:grid; place-items:center; width:32px; height:32px; border:5px solid #fff; border-radius:50%; background:#5146d8; color:#fff; font-size:12px; box-shadow:0 5px 14px rgb(81 70 216 / .25); } .ds-learning-map li:nth-child(2)>b { background:#ff8066; } .ds-learning-map li:nth-child(3)>b { background:#37a477; } .ds-learning-map li strong { font-size:17px; } .ds-learning-map li p { margin:4px 0 0; color:#626a80; font-size:13px; line-height:1.55; }"
+    },
+    {
+      "name": "Goal Lane",
+      "kind": "card",
+      "description": "把一条学习目标包装成整行可点击的柔和彩色路线。",
+      "html": "<a class=\"ds-goal-lane\" href=\"#\"><span class=\"ds-goal-icon\" aria-hidden=\"true\">✦</span><span><strong>先理解核心概念</strong><small>用短说明建立继续学习所需的信心。</small></span><em>开始学习 →</em></a>",
+      "css": ".ds-goal-lane { display:grid; grid-template-columns:54px minmax(0,1fr) auto; gap:20px; align-items:center; min-height:84px; padding:24px 28px; border-radius:22px; background:#fff0ec; color:#29304a; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; text-decoration:none; transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease; } .ds-goal-lane:hover { transform:translateY(-3px); box-shadow:0 16px 30px rgb(43 45 98 / .11); } .ds-goal-lane:focus-visible { outline:3px solid rgb(81 70 216 / .28); outline-offset:4px; } .ds-goal-icon { display:grid; place-items:center; width:54px; height:54px; border-radius:17px; background:#fff; color:#d6523c; } .ds-goal-lane strong { display:block; font-size:21px; font-weight:760; } .ds-goal-lane small { display:block; margin-top:6px; color:#697086; font-size:14px; line-height:1.65; } .ds-goal-lane em { padding:10px 13px; border-radius:11px; background:rgb(255 255 255 / .72); font-size:13px; font-style:normal; font-weight:700; }"
+    },
+    {
+      "name": "Inner Page Intro Note",
+      "kind": "card",
+      "description": "概念页 Hero 中靠下对齐的白色入门说明块；主标题上方不放 eyebrow。",
+      "html": "<aside class=\"ds-intro-note\"><strong>第一次来，从这里开始</strong><p>先理解大模型怎样生成答案，再选择与你目标相关的内容。</p><a href=\"#\">阅读第一篇 →</a></aside>",
+      "css": ".ds-intro-note { padding:20px; border-radius:18px; background:#fff; color:#27304a; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; box-shadow:0 10px 30px rgb(43 45 98 / .09); } .ds-intro-note strong { font-size:14px; font-weight:600; } .ds-intro-note p { margin:8px 0 0; color:#697086; font-size:14px; line-height:1.5; } .ds-intro-note a { display:inline-flex; margin-top:16px; color:#5146d8; font-size:14px; font-weight:500; text-decoration:none; } .ds-intro-note a:hover { color:#4036bf; } .ds-intro-note a:focus-visible { outline:3px solid rgb(81 70 216 / .28); outline-offset:4px; }"
+    },
+    {
+      "name": "Project Path Item",
+      "kind": "card",
+      "description": "白纸项目卡片配合使用 UI 字体的紫色路径编号标签。",
+      "html": "<a class=\"ds-project-item\" href=\"#\"><span class=\"ds-project-number\">01</span><span><strong>答案之书</strong><small>从一个 HTML 文件开始完成第一个作品。</small></span></a>",
+      "css": ".ds-project-item { display:grid; grid-template-columns:46px minmax(0,1fr); gap:18px; align-items:center; padding:22px; border-radius:20px; background:#fff; color:#27304a; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; text-decoration:none; box-shadow:0 8px 22px rgb(43 45 98 / .075); transition:transform .22s ease,box-shadow .22s ease; } .ds-project-item:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgb(43 45 98 / .12); } .ds-project-item:focus-visible { outline:3px solid rgb(81 70 216 / .28); outline-offset:4px; } .ds-project-number { display:grid; place-items:center; width:46px; height:46px; border-radius:15px; background:#eeecff; color:#5146d8; font-family:\"PingFang SC\",\"Microsoft YaHei\",system-ui,sans-serif; font-size:13px; font-weight:800; } .ds-project-item strong { display:block; font-size:18px; } .ds-project-item small { display:block; margin-top:5px; color:#697086; font-size:14px; line-height:1.55; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "欢迎式学习路线",
+    "overview": "界面像一张摆在初学者面前的友好路线图：先用宽松的留白和一句清楚的承诺接住紧张感，再只给出一个明确的下一步。它把手机学习陪伴产品的亲近感翻译为响应式网页旅程，避免开发者控制台式的信息密度。\n\n柔和的长春花紫场景、墨蓝文字和白色纸张卡片构成底层世界；晴黄色胶带、珊瑚色与薄荷色路线标记负责提示进度和分流。轻微旋转、不规则背景色块和环境阴影带来手工纸张感，但信息结构始终稳定、易扫读。",
+    "keyCharacteristics": [
+      "每个首屏只突出一个推荐动作。",
+      "大面积浅色底承载内容，紫蓝用于路线、状态和主行动。",
+      "圆角纸张卡片配合柔和环境阴影，避免硬边工具感。",
+      "珊瑚与薄荷只标记不同学习方向，不与主紫色争夺行动层级。",
+      "中文系统字体优先，字重和紧凑字距建立清楚层级，不依赖外部字体资产。"
+    ],
+    "rules": [
+      {
+        "name": "The One Clear Route Rule",
+        "body": "路线紫只负责当前路径与主行动；珊瑚、薄荷和黄色承担分类或提示，不生成同等级的竞争按钮。",
+        "section": "colors"
+      },
+      {
+        "name": "The Calm Chinese Type Rule",
+        "body": "不引入未部署的品牌字体；通过系统中文字体、紧凑标题字距和宽松正文行高维持清楚、可靠的阅读节奏。",
+        "section": "typography"
+      },
+      {
+        "name": "The Soft Paper Depth Rule",
+        "body": "静态信息优先通过浅色纸面分层；只给可行动或明显悬浮的元素添加柔和阴影。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do 在每个首屏只保留一个最醒目的主行动，并用路线紫标识。",
+      "Do 用白纸、长春花紫、珊瑚底和薄荷底建立大面积低对比分区。",
+      "Do 把轻微旋转和柔和阴影留给品牌符号、路线图、提示符号和项目票据。",
+      "Do 为链接、按钮、输入和菜单摘要保留 3px 可见键盘焦点。",
+      "Do 在 760px 以下切换单栏并保持 20px 页面边距和全宽主按钮。",
+      "Do 让内页标题直接开场，并将解释性引导放进清楚的白色说明块。"
+    ],
+    "donts": [
+      "Don't 把页面压成开发者控制台或密集仪表盘。",
+      "Don't 同时使用多个路线紫主按钮，或让珊瑚、薄荷成为竞争性的主行动色。",
+      "Don't 引入代码中没有部署的字体、插画或图像资产。",
+      "Don't 给每个容器都加阴影；静态层级先用背景色和留白表达。",
+      "Don't 省略移动导航、键盘焦点或减少动态偏好支持。",
+      "Don't 在内页标题上方恢复 eyebrow，或把项目路径编号改成等宽数字徽章。"
+    ]
+  }
+}

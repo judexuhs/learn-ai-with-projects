@@ -16,7 +16,7 @@ export default async function LearningPathPage({ params }: { params: Promise<{ s
   if (!path) notFound();
   const project = getProject(path.project);
 
-  return <main className="min-h-dvh bg-white text-[#1d1d1f]">
+  return <main className="consumer-page min-h-dvh">
     <SiteHeader />
     <section className="border-b border-black/[.08] bg-[#fafafa]"><div className="mx-auto max-w-6xl border-x border-black/[.06] px-5 py-12 md:px-8 md:py-16">
       <Link href="/methods" className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-black"><ArrowLeft className="size-4" />返回学习路径</Link>

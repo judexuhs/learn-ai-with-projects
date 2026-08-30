@@ -23,14 +23,14 @@ export function TopicCatalog({ topics }: { topics: Topic[] }) {
   const items = topics.filter((topic) => topic.category === active);
 
   return <>
-    <div className="grid border-y border-black/[.08] md:grid-cols-3" role="tablist" aria-label="知识层级">
+    <div className="friendly-tabs grid md:grid-cols-3" role="tablist" aria-label="知识层级">
       {layers.map((layer) => <button
         key={layer.name}
         type="button"
         role="tab"
         aria-selected={active === layer.name}
         onClick={() => setActive(layer.name)}
-        className={`min-h-28 border-b border-black/[.08] px-5 py-5 text-left transition last:border-b-0 md:border-r md:border-b-0 md:last:border-r-0 ${active === layer.name ? 'bg-[#f4f8ff]' : 'bg-white hover:bg-[#fafafa]'}`}
+        className={`min-h-28 px-5 py-5 text-left transition ${active === layer.name ? 'is-active' : ''}`}
       >
         <span className={`text-sm font-semibold ${active === layer.name ? 'text-[#2259a8]' : 'text-neutral-900'}`}>{layer.label}</span>
         <span className="mt-2 block text-xs leading-5 text-neutral-500">{layer.description}</span>
@@ -44,7 +44,7 @@ export function TopicCatalog({ topics }: { topics: Topic[] }) {
     </div>
 
     <div className="mt-8 grid gap-4 md:grid-cols-2">
-      {items.map((topic, index) => <Link key={topic.slug} href={`/concepts/${topic.slug}`} className="group rounded-xl border border-black/[.08] bg-white p-5 transition hover:border-black/20 sm:p-6">
+      {items.map((topic, index) => <Link prefetch={false} key={topic.slug} href={`/concepts/${topic.slug}`} className="friendly-topic group p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4">
           <span className="flex items-center gap-2 text-xs font-medium text-neutral-400"><BookOpen className="size-4 text-[#2259a8]" />第 {index + 1} 篇</span>
           <span className="flex items-center gap-1.5 text-xs text-neutral-400"><Clock3 className="size-3.5" />约 10 分钟</span>

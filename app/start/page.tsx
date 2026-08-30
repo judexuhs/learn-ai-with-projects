@@ -17,15 +17,15 @@ const steps = [
 ];
 
 export default function StartPage() {
-  return <main className="min-h-dvh bg-white text-[#1d1d1f]">
+  return <main className="consumer-page min-h-dvh">
     <SiteHeader />
-    <section className="mx-auto max-w-5xl px-5 pt-16 pb-12 md:px-8 md:pt-24">
-      <p className="text-sm font-medium text-[#2259a8]">从这里开始 · 约 10 分钟</p>
+    <section className="friendly-page-hero mx-auto max-w-5xl px-5 pt-16 pb-12 md:px-8 md:pt-24">
       <h1 className="mt-4 max-w-3xl text-4xl leading-[1.08] font-semibold tracking-[-0.05em] md:text-6xl">先让第一个网页在你的电脑上跑起来</h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-500">不用先学编程，也不用注册 API。你现在只完成四件事：选工具、建文件夹、创建网页、学会描述报错。</p>
+      <p className="mt-5 text-sm font-medium text-[#5146d8]">从这里开始 · 约 10 分钟</p>
     </section>
 
-    <section className="mx-auto max-w-5xl px-5 pb-16 md:px-8">
+    <section className="friendly-steps mx-auto max-w-5xl px-5 pb-16 md:px-8">
       <div className="divide-y divide-black/[.08] border-y border-black/[.08]">
         {steps.map(({ icon: Icon, title, result, body, prompt, check }) => <article key={title} className="grid gap-5 py-8 md:grid-cols-[52px_minmax(0,1fr)] md:py-10">
           <span className="flex size-10 items-center justify-center rounded-lg bg-[#eef4ff] text-[#2259a8]"><Icon className="size-5" /></span>
@@ -46,7 +46,7 @@ export default function StartPage() {
 
       <div className="mt-12 border-t border-black/[.08] pt-10">
         <p className="text-sm text-neutral-500">四项都完成了，下一步只做最简单的项目。</p>
-        <Link href="/projects/book-of-answers" className={cn(buttonVariants({ size: 'lg' }), 'mt-4')}>开始做答案之书<ArrowRight /></Link>
+        <Link prefetch={false} href="/projects/book-of-answers" className={cn(buttonVariants({ size: 'lg' }), 'mt-4')}>开始做答案之书<ArrowRight /></Link>
       </div>
     </section>
     <SiteFooter />

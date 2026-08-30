@@ -22,12 +22,12 @@ export function ProjectList({ projects }: { projects: Project[] }) {
     return () => window.clearTimeout(timer);
   }, [projects]);
 
-  return <div className="min-w-0 divide-y divide-black/[.08] border-y border-black/[.08]">
+  return <div className="friendly-project-list min-w-0">
     {projects.map((project) => {
       const done = progress[project.slug] ?? 0;
       const complete = done === project.steps.length;
-      return <Link key={project.slug} href={`/projects/${project.slug}`} className="group grid min-w-0 gap-4 py-7 transition-colors hover:bg-slate-50/70 sm:grid-cols-[48px_minmax(0,1fr)_auto] sm:items-center sm:px-4">
-        <span className="text-sm font-medium tabular-nums text-[#2259a8]">{project.number}</span>
+      return <Link prefetch={false} key={project.slug} href={`/projects/${project.slug}`} className="group grid min-w-0 gap-4 sm:grid-cols-[54px_minmax(0,1fr)_auto] sm:items-center">
+        <span className="project-number">{project.number}</span>
         <div className="min-w-0">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <h2 className="text-xl font-semibold tracking-[-0.025em]">{project.title}</h2>
