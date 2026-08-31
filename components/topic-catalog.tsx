@@ -1,61 +1,65 @@
-'use client';
-
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Clock3, FlaskConical } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowRight, BookOpen, ChevronDown, Clock3, FlaskConical } from 'lucide-react';
 
-type Topic = {
-  slug: string;
-  title: string;
-  question: string;
-  category: string;
-};
+type Topic = { slug: string; title: string; question: string; category: string };
 
-const layers = [
-  { name: '原理层', label: '先看懂 AI', description: '生成、上下文、记忆、幻觉、工具与工作流' },
-  { name: '应用层', label: '把 AI 用好', description: '说清任务、检查结果、反复修改并沉淀方法' },
-  { name: '项目层', label: '开始做工具', description: 'API、数据、评估、成本与上线边界' },
+const starterSlugs = ['how-llms-generate', 'clarify-the-task', 'verify-ai-output'];
+
+const questionGroups = [
+  { title: '我想先把 AI 用好', description: '适合日常写作、研究和分析任务', slugs: ['clarify-the-task', 'write-a-good-prompt', 'provide-context', 'iterate-with-ai', 'verify-ai-output'] },
+  { title: '我想看懂 AI 为什么这样回答', description: '理解生成、记忆、上下文和幻觉', slugs: ['how-llms-generate', 'token-and-context', 'ai-memory', 'hallucination'] },
+  { title: '我想搭建工作流或 Agent', description: '理解工具调用、流程和知识库', slugs: ['tool-use', 'workflow-and-agent', 'conversation-to-workflow', 'rag-knowledge-base'] },
+  { title: '我想把 AI 做成一个产品', description: '进入 API、结构化输出、成本和权限', slugs: ['api-and-server', 'structured-output', 'multimodal-input', 'model-cost-latency', 'privacy-and-permissions'] },
 ];
 
 export function TopicCatalog({ topics }: { topics: Topic[] }) {
-  const [active, setActive] = useState('原理层');
-  const current = layers.find((item) => item.name === active) ?? layers[0];
-  const items = topics.filter((topic) => topic.category === active);
+  const bySlug = new Map(topics.map((topic) => [topic.slug, topic]));
+  const starterTopics = starterSlugs.map((slug) => bySlug.get(slug)).filter((topic): topic is Topic => Boolean(topic));
 
   return <>
-    <div className="friendly-tabs grid md:grid-cols-3" role="tablist" aria-label="知识层级">
-      {layers.map((layer) => <button
-        key={layer.name}
-        type="button"
-        role="tab"
-        aria-selected={active === layer.name}
-        onClick={() => setActive(layer.name)}
-        className={`min-h-28 px-5 py-5 text-left transition ${active === layer.name ? 'is-active' : ''}`}
-      >
-        <span className={`text-sm font-semibold ${active === layer.name ? 'text-[#2259a8]' : 'text-neutral-900'}`}>{layer.label}</span>
-        <span className="mt-2 block text-xs leading-5 text-neutral-500">{layer.description}</span>
-      </button>)}
-    </div>
+    <section className="topic-starter" aria-labelledby="starter-heading">
+      <div className="topic-section-heading">
+        <div><span>第一次来</span><h2 id="starter-heading">先读这 3 篇就够了</h2></div>
+        <p>三篇读完，你会知道 AI 怎么回答、怎样把任务说清楚，以及最后怎么检查结果。</p>
+      </div>
+      <ol className="starter-list">
+        {starterTopics.map((topic, index) => <li key={topic.slug}>
+          <Link prefetch={false} href={`/concepts/${topic.slug}`}>
+            <span className="starter-index">{index + 1}</span>
+            <div><span>约 10 分钟</span><h3>{topic.title}</h3><p>{topic.question}</p></div>
+            <span className="starter-action">阅读这篇<ArrowRight /></span>
+          </Link>
+        </li>)}
+      </ol>
+    </section>
 
-    <div className="mt-10 max-w-2xl">
-      <p className="text-sm font-medium text-[#2259a8]">{current.name}</p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">{current.label}</h2>
-      <p className="mt-3 leading-7 text-neutral-500">不用一次读完。按顺序选一篇，读完立即做文章里的小实验。</p>
-    </div>
-
-    <div className="mt-8 grid gap-4 md:grid-cols-2">
-      {items.map((topic, index) => <Link prefetch={false} key={topic.slug} href={`/concepts/${topic.slug}`} className="friendly-topic group p-5 sm:p-6">
-        <div className="flex items-center justify-between gap-4">
-          <span className="flex items-center gap-2 text-xs font-medium text-neutral-400"><BookOpen className="size-4 text-[#2259a8]" />第 {index + 1} 篇</span>
-          <span className="flex items-center gap-1.5 text-xs text-neutral-400"><Clock3 className="size-3.5" />约 10 分钟</span>
-        </div>
-        <h3 className="mt-6 text-xl font-semibold tracking-[-0.025em]">{topic.title}</h3>
-        <p className="mt-2 text-sm leading-6 text-neutral-500">{topic.question}</p>
-        <div className="mt-5 flex items-center justify-between border-t border-black/[.06] pt-4 text-xs">
-          <span className="flex items-center gap-1.5 text-neutral-500"><FlaskConical className="size-3.5" />读完动手试一次</span>
-          <ArrowRight className="size-4 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-black" />
-        </div>
-      </Link>)}
-    </div>
+    <section className="topic-picker" aria-labelledby="picker-heading">
+      <div className="topic-section-heading">
+        <div><span>有具体问题时</span><h2 id="picker-heading">按你现在想做的事来找</h2></div>
+        <p>不用按顺序读，也不用把所有专题学完。打开最接近你当前问题的一组即可。</p>
+      </div>
+      <div className="topic-groups">
+        {questionGroups.map((group, index) => {
+          const groupTopics = group.slugs.map((slug) => bySlug.get(slug)).filter((topic): topic is Topic => Boolean(topic));
+          return <details key={group.title} className="topic-group">
+            <summary>
+              <span className="group-index">{String(index + 1).padStart(2, '0')}</span>
+              <span><strong>{group.title}</strong><small>{group.description}</small></span>
+              <span className="group-count">{groupTopics.length} 篇</span>
+              <ChevronDown />
+            </summary>
+            <div className="group-topics">
+              {groupTopics.map((topic) => <Link prefetch={false} key={topic.slug} href={`/concepts/${topic.slug}`}>
+                <span><BookOpen /></span>
+                <div><h3>{topic.title}</h3><p>{topic.question}</p></div>
+                <span className="topic-time"><Clock3 />10 分钟</span>
+                <ArrowRight />
+              </Link>)}
+            </div>
+          </details>;
+        })}
+      </div>
+      <p className="topic-experiment-note"><FlaskConical />每篇专题最后都有一个几分钟的小实验，读完就能马上验证。</p>
+    </section>
   </>;
 }

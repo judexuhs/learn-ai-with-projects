@@ -22,7 +22,7 @@ export default function StartPage() {
     <section className="friendly-page-hero mx-auto max-w-5xl px-5 pt-16 pb-12 md:px-8 md:pt-24">
       <h1 className="mt-4 max-w-3xl text-4xl leading-[1.08] font-semibold tracking-[-0.05em] md:text-6xl">先让第一个网页在你的电脑上跑起来</h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-500">不用先学编程，也不用注册 API。你现在只完成四件事：选工具、建文件夹、创建网页、学会描述报错。</p>
-      <p className="mt-5 text-sm font-medium text-[#5146d8]">从这里开始 · 约 10 分钟</p>
+      <p className="mt-5 text-sm font-medium text-[#1d5fd1]">从这里开始 · 约 10 分钟</p>
     </section>
 
     <section className="friendly-steps mx-auto max-w-5xl px-5 pb-16 md:px-8">

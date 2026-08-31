@@ -14,7 +14,7 @@ export default function MethodsPage() {
     <section className="friendly-page-hero mx-auto max-w-6xl px-5 pt-20 pb-16 md:px-8 md:pt-24 md:pb-20">
       <h1 className="mt-5 max-w-4xl text-5xl leading-[1.07] font-semibold tracking-[-0.05em] text-balance md:text-7xl">不用先学完 AI，从你的目标开始</h1>
       <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-500">选择现在最想做到的事情。我们只安排这条路真正需要的专题，并在合适的位置带你进入项目。</p>
-      <p className="mt-5 text-sm font-medium text-[#5146d8]">学习路径</p>
+      <p className="mt-5 text-sm font-medium text-[#1d5fd1]">学习路径</p>
     </section>
 
     <section className="friendly-catalog">
@@ -24,7 +24,7 @@ export default function MethodsPage() {
             const first = topics.find((topic) => topic.slug === path.steps[0].topic);
             return <Link prefetch={false} key={path.slug} href={`/methods/${path.slug}`} className="group grid gap-5 border-black/[.08] p-5 transition hover:bg-black/[.015] md:grid-cols-[54px_220px_1fr_auto] md:items-center md:p-7 [&:not(:last-child)]:border-b">
               <span className="flex size-11 items-center justify-center rounded-lg border border-black/[.08] bg-[#fafafa] text-[hsl(212_100%_41%)]"><Route className="size-5" /></span>
-              <div><p className="text-xs font-semibold text-[#5146d8]">路径 {index + 1}</p><h2 className="mt-2 text-xl font-semibold tracking-[-0.025em]">{path.title}</h2></div>
+              <div><p className="text-xs font-semibold text-[#1d5fd1]">路径 {index + 1}</p><h2 className="mt-2 text-xl font-semibold tracking-[-0.025em]">{path.title}</h2></div>
               <div><p className="text-sm leading-6 text-neutral-600">{path.description}</p><p className="mt-2 text-xs text-neutral-400">{path.steps.length} 个专题，第一篇：{first?.shortTitle}</p></div>
               <ArrowRight className="size-4 text-neutral-300 transition group-hover:translate-x-0.5 group-hover:text-black" />
             </Link>;
