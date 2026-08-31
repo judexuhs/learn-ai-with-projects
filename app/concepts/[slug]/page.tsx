@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { NativeLink as Link } from '@/components/native-link';
 import {
   ArrowLeft,
   ArrowRight,

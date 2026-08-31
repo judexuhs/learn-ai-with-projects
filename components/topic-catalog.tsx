@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { NativeLink as Link } from '@/components/native-link';
 import {
   ArrowRight,
   BookOpen,
