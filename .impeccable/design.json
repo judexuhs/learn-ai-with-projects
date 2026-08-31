@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-08-30T18:34:00Z",
-  "title": "Design System: AI 项目实验室",
+  "title": "Design System: 做点东西",
   "extensions": {
     "colorMeta": {
       "route-blue": {
@@ -129,7 +129,7 @@
       {
         "name": "brand-marker",
         "value": "0 8px 20px rgb(29 95 209 / .22)",
-        "purpose": "品牌符号的柔和蓝色浮层。"
+        "purpose": "橙色锤子品牌符号的柔和浮层。"
       },
       {
         "name": "primary-action",

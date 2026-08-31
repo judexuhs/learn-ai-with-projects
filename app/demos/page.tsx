@@ -15,7 +15,7 @@ export default function DemosPage() {
   return (
     <main className="demo-index min-h-dvh">
       <header className="demo-index-header">
-        <Link href="/" className="demo-index-brand">AI 项目实验室</Link>
+        <Link href="/" className="demo-index-brand">做点东西</Link>
         <Link href="/projects" className="demo-index-guide">查看跟做教程<ArrowRight /></Link>
       </header>
       <section className="demo-index-intro">

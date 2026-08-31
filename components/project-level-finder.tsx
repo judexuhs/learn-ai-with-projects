@@ -13,11 +13,11 @@ import {
 import type { EvidenceId, GoalId, ProjectRecommendation } from '@/lib/project-routing';
 
 const entryLabels: Record<string, string> = {
-  setup: '从工具和项目文件夹准备开始',
-  define: '工具准备可以跳过，从写清产品说明开始',
-  prototype: '从固定结果原型开始',
-  schema: '基础调用可以跳过，从结构化输出开始',
-  goal: '从项目目标和真实使用场景开始',
+  setup: '先装好 Agent，打开项目文件夹',
+  define: '直接从写产品说明开始',
+  prototype: '先做一个不用 API 的可点击版本',
+  schema: '从规定模型返回格式开始',
+  goal: '先确定这个工作台要解决什么问题',
 };
 
 export function ProjectLevelFinder() {
@@ -38,10 +38,11 @@ export function ProjectLevelFinder() {
   if (recommendation) {
     const { project } = recommendation;
     return <div ref={finderRef} className="level-finder result-state" aria-live="polite">
-      <div className="finder-progress"><span>分级完成</span><strong>{recommendation.stageLabel}</strong></div>
+      <div className="finder-progress"><span>已经选好了</span><strong>2 / 2</strong></div>
+      <p className="result-stage">{recommendation.stageLabel}</p>
       <div className="result-main">
         <span className="result-number">项目 {project.number}</span>
-        <h2>推荐你从<br />「{project.title}」开始</h2>
+        <h2>先做「{project.title}」</h2>
         <p>{recommendation.reason}</p>
       </div>
       <dl className="result-facts">
@@ -49,15 +50,15 @@ export function ProjectLevelFinder() {
         <div><dt>模型调用</dt><dd>{project.api}</dd></div>
         <div><dt>最后得到</dt><dd>{project.output}</dd></div>
       </dl>
-      <div className="result-entry"><Check /><span><strong>你的起点：</strong>{entryLabels[recommendation.entry]}</span></div>
+      <div className="result-entry"><Check /><span><strong>进入项目以后</strong>{entryLabels[recommendation.entry]}</span></div>
       <div className="result-route">
-        <span>通往目标的路线</span>
+        <span>后面可以这样做</span>
         <ol>{recommendation.route.map((slug, index) => <li key={slug}>
           <span>{projectProfiles[slug].number}</span><strong>{projectProfiles[slug].title}</strong>{index < recommendation.route.length - 1 && <ArrowRight />}
         </li>)}</ol>
       </div>
-      <Link prefetch={false} href={`/projects/${recommendation.projectSlug}`} className="finder-primary">开始做{project.title}<ArrowRight /></Link>
-      <button type="button" className="finder-reset" onClick={reset}><RotateCcw />重新分级</button>
+      <Link prefetch={false} href={`/projects/${recommendation.projectSlug}`} className="finder-primary">去做{project.title}<ArrowRight /></Link>
+      <button type="button" className="finder-reset" onClick={reset}><RotateCcw />重新选一次</button>
     </div>;
   }
 
@@ -65,8 +66,9 @@ export function ProjectLevelFinder() {
   const step = evidence ? 2 : 1;
 
   return <div ref={finderRef} className="level-finder">
-    <div className="finder-progress"><span>第 {step} 步，共 2 步</span><strong>{evidence ? '你最终想做什么？' : '你现在已经做到哪一步？'}</strong></div>
-    <p className="finder-help">{evidence ? '目标可以远一点，系统会先给你当前够得着的项目。' : '选择你确实完成过的最高一项，不需要评价自己会不会编程。'}</p>
+    <div className="finder-progress"><span>30 秒帮你选项目</span><strong>{step} / 2</strong></div>
+    <h2 className="finder-question">{evidence ? '接下来最想做哪类东西？' : '你现在怎么用 AI？'}</h2>
+    <p className="finder-help">{evidence ? '先不用考虑难不难，我会根据上一题给你安排起点。' : '选最接近你现在情况的一项。'}</p>
     <div className="finder-options">
       {options.map((option, index) => <button
         type="button"

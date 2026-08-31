@@ -17,18 +17,18 @@ export default function Home() {
     <SiteHeader />
     <section className="level-hero">
       <div className="level-intro">
-        <span><Sparkles />项目优先学习</span>
-        <h1>先找到你的起点，<br />再直接开始项目</h1>
-        <p>不用先学概念，也不用自己比较四个项目。回答两个问题，我们会把你送到当前最合适的起点。</p>
-        <ul><li><Check />不考试</li><li><Check />不需要登录</li><li><Check />结果只用于这次推荐</li></ul>
+        <span><Sparkles />先选项目，再边做边学</span>
+        <h1>先看看，<br />你该做哪个项目</h1>
+        <p>选一下你现在用 AI 做到哪了。我会直接给你一个项目，先做起来，遇到问题再看说明。</p>
+        <ul><li><Check />只问两个问题</li><li><Check />不用登录</li><li><Check />选完直接开始</li></ul>
       </div>
       <ProjectLevelFinder />
     </section>
 
     <section className="project-route-section">
       <div className="project-route-heading">
-        <div><span>四次真实升级</span><h2>不是先学完，再开始做</h2></div>
-        <p>每个项目都解决上一阶段最关键的能力缺口。你可以从推荐的位置进入，不必从第一个重新开始。</p>
+        <div><span>四个跟做项目</span><h2>每做完一个，就多会一件事</h2></div>
+        <p>项目从简单网页排到完整工作流。你可以直接从刚才选出的项目开始，不用从第一个重做。</p>
       </div>
       <div className="project-route-list">
         {projectRoute.map(({ icon: Icon, ...project }) => <Link prefetch={false} key={project.number} href={project.href}>
@@ -38,7 +38,7 @@ export default function Home() {
           <span className="route-action">查看项目<ArrowRight /></span>
         </Link>)}
       </div>
-      <div className="route-demo-link"><span>还不确定成品是什么样？</span><Link prefetch={false} href="/demos">先体验四个成品 Demo<ArrowRight /></Link></div>
+      <div className="route-demo-link"><span>想先看看做出来是什么样？</span><Link prefetch={false} href="/demos">打开四个成品<ArrowRight /></Link></div>
     </section>
     <SiteFooter />
   </main>;
