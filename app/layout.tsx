@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://learn-ai-with-projects.judexuhs.workers.dev'),
   icons: { icon: '/favicon.svg' },
   title: {
-    default: '做点东西',
-    template: '%s | 做点东西',
+    default: '造物间',
+    template: '%s | 造物间',
   },
   description: '通过四个由浅入深的项目，学会借助 AI 把想法做成可运行作品。',
   openGraph: {
-    title: '做点东西',
+    title: '造物间',
     description: '跟着步骤，把想法做成能运行的项目。',
     images: ['/og.png'],
     type: 'website',

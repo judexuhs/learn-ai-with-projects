@@ -23,18 +23,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <main className="consumer-page min-h-dvh">
       <SiteHeader />
-      <section className="border-b border-black/[.08] bg-[#fafafa]">
-        <div className="mx-auto max-w-5xl px-5 py-10 md:px-8 md:py-14">
-          <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-sky-700"><ArrowLeft className="size-4" />返回项目路径</Link>
-          <div className="mt-8 max-w-3xl">
-            <p className="text-sm font-medium text-sky-700">项目 {project.number} · {project.level} · {project.time}</p>
-            <h1 className="mt-3 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">{project.title}</h1>
-            <p className="mt-4 text-base leading-7 text-slate-600">{project.subtitle}</p>
-            <p className="mt-5 text-sm leading-7 text-slate-500">最终做出：{project.outputs.join('、')}</p>
+      <section className="project-page-intro">
+        <div className="project-page-intro-inner">
+          <Link href="/projects" className="project-page-back"><ArrowLeft />所有项目</Link>
+          <div className="project-page-title">
+            <div>
+              <p>项目 {project.number} · {project.level} · {project.time}</p>
+              <h1>{project.title}</h1>
+              <span>{project.subtitle}</span>
+            </div>
+            <aside><small>完成后你会有</small><strong>{project.outputs[0]}</strong></aside>
           </div>
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10"><ProjectGuide project={project} /></section>
+      <section className="project-guide-section mx-auto max-w-7xl px-5 py-9 md:px-8 md:py-12 lg:px-10"><ProjectGuide project={project} /></section>
       <section className="mx-auto max-w-5xl px-5 pb-20 md:px-8">
         <div className="rounded-xl border border-black/[.08] bg-[#fafafa] p-7 sm:p-10">
           <p className="text-sm font-medium text-sky-700">做完之后</p><h2 className="mt-3 text-2xl font-semibold">把作品发给一个真实的人</h2>

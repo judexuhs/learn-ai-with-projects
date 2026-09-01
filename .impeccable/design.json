@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-08-30T18:34:00Z",
-  "title": "Design System: 做点东西",
+  "title": "Design System: 造物间",
   "extensions": {
     "colorMeta": {
       "route-blue": {
@@ -127,9 +127,9 @@
     },
     "shadows": [
       {
-        "name": "brand-marker",
-        "value": "0 8px 20px rgb(29 95 209 / .22)",
-        "purpose": "橙色锤子品牌符号的柔和浮层。"
+        "name": "agent-task",
+        "value": "0 14px 34px rgb(31 72 135 / .1)",
+        "purpose": "项目页最先需要执行的 Agent 任务卡片。"
       },
       {
         "name": "primary-action",
@@ -270,7 +270,7 @@
     "dos": [
       "Do 在每个首屏只保留一个最醒目的主行动，并用路线蓝标识。",
       "Do 用白纸、浅蓝、珊瑚底和沉静蓝底建立大面积低对比分区。",
-      "Do 把轻微旋转和柔和阴影留给品牌符号、路线图、提示符号和项目票据。",
+      "Do 把轻微旋转和柔和阴影留给路线图、提示符号和项目票据，品牌文字标识保持稳定。",
       "Do 为链接、按钮、输入和菜单摘要保留 3px 可见键盘焦点。",
       "Do 在 760px 以下切换单栏并保持 20px 页面边距和全宽主按钮。",
       "Do 让内页标题直接开场，并将解释性引导放进清楚的白色说明块。"

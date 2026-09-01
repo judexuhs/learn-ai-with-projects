@@ -20,10 +20,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 .consumer-header { position:sticky; top:0; z-index:40; border-bottom:1px solid rgb(29 95 209/.1); background:rgb(248 248 255/.92); backdrop-filter:blur(16px) saturate(1.3); }
 .consumer-header-inner { display:grid; grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr); align-items:center; max-width:1180px; height:72px; margin:auto; padding:0 28px; }
-.consumer-brand { display:inline-flex; align-items:center; gap:11px; width:fit-content; color:#27304a; }
-.consumer-brand>span,.footer-promise>span { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:#f26a3d; color:white; box-shadow:0 8px 20px rgb(242 106 61/.2); transform:rotate(-4deg); }
-.consumer-brand svg,.footer-promise svg { width:19px; height:19px; }
-.consumer-brand strong { font-size:15px; letter-spacing:-.015em; }
+.consumer-brand { display:inline-flex; width:fit-content; color:#27304a; }
+.brand-wordmark { position:relative; display:grid; gap:2px; padding-left:12px; line-height:1; }
+.brand-wordmark::before { position:absolute; top:1px; bottom:1px; left:0; width:5px; border-radius:4px; background:#f26a3d; content:''; }
+.brand-wordmark strong { color:#252c48; font-size:20px; line-height:1; font-weight:850; letter-spacing:-.075em; }
+.brand-wordmark small { color:#7b8395; font-size:9px; line-height:1; font-weight:700; letter-spacing:.08em; }
+.brand-wordmark.is-inverse strong { color:white; }.brand-wordmark.is-inverse small { color:#adb3ce; }
 .consumer-nav { display:flex; align-items:center; gap:3px; padding:4px; border-radius:14px; background:#eaf2ff; }
 .consumer-nav a { padding:8px 12px; border-radius:10px; color:#656b80; font-size:13px; font-weight:650; transition:background .2s ease,color .2s ease,box-shadow .2s ease; }
 .consumer-nav a:hover { color:#174ea6; }
@@ -133,8 +135,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 .project-links { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:24px; padding-left:78px; }
 
 .consumer-footer { background:#252c48; color:white; }.consumer-footer-inner { display:flex; justify-content:space-between; gap:48px; max-width:1180px; margin:auto; padding:58px 28px; }
-.footer-promise { display:flex; align-items:center; gap:14px; }.footer-promise>span { background:#ffe1b5; color:#7b371a; box-shadow:none; }
-.footer-promise strong { font-size:15px; }.footer-promise p { margin-top:4px; color:#adb3ce; font-size:13px; }
+.footer-promise { display:flex; align-items:center; gap:22px; }.footer-promise p { max-width:250px; color:#adb3ce; font-size:13px; line-height:1.55; }
 .footer-links { display:flex; flex-wrap:wrap; justify-content:end; gap:12px 22px; max-width:610px; }
 .footer-links a { display:inline-flex; align-items:center; gap:4px; color:#cfd2e5; font-size:13px; }.footer-links a:hover { color:white; }.footer-links svg { width:12px; height:12px; }
 
@@ -183,6 +184,17 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 .friendly-project-list>a:nth-child(2) .project-number { background:#fff0ec; color:#d6523c; }.friendly-project-list>a:nth-child(3) .project-number { background:#eaf2ff; color:#1d5fd1; }.friendly-project-list>a:nth-child(4) .project-number { background:#ffead1; color:#8b3f1d; }
 .consumer-page input:focus-visible,.consumer-page button:focus-visible,.consumer-page summary:focus-visible { outline:3px solid rgb(29 95 209/.25); outline-offset:3px; }
 
+.project-page-intro { border-bottom:1px solid rgb(29 95 209/.1); background:#fff; }
+.project-page-intro-inner { max-width:1120px; margin:auto; padding:28px 28px 32px; }
+.project-page-back { display:inline-flex; align-items:center; gap:7px; color:#7a8294; font-size:12px; font-weight:700; }.project-page-back:hover { color:#174ea6; }.project-page-back svg { width:14px; height:14px; }
+.project-page-title { display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:36px; align-items:end; margin-top:22px; }
+.project-page-title>div>p { color:#1d5fd1; font-size:12px; font-weight:750; }.project-page-title h1 { margin-top:8px; color:#252c48; font-size:42px; line-height:1.04; font-weight:760; letter-spacing:-.04em; }.project-page-title>div>span { display:block; margin-top:12px; color:#626a80; font-size:15px; line-height:1.6; }
+.project-page-title aside { padding:15px 17px; border-left:4px solid #f26a3d; border-radius:0 12px 12px 0; background:#fff4ed; }.project-page-title aside small { display:block; color:#9a694f; font-size:10px; font-weight:700; }.project-page-title aside strong { display:block; margin-top:5px; color:#563827; font-size:13px; line-height:1.5; }
+.project-agent-task { padding:22px; border:2px solid #b9cff2; border-radius:18px; background:#fff; box-shadow:0 14px 34px rgb(31 72 135/.1); }
+.project-agent-task-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; }.project-agent-task-heading>div>p { color:#b84a21; font-size:11px; font-weight:800; }.project-agent-task-heading h3 { margin-top:4px; color:#27304a; font-size:19px; line-height:1.3; font-weight:760; letter-spacing:-.02em; }.project-agent-task-heading button { flex-shrink:0; min-width:112px; }
+.project-agent-task-copy { margin-top:17px; padding:15px 17px; border-radius:12px; background:#f3f7ff; color:#3e485f; font-size:14px; line-height:1.75; }
+.project-agent-task>small { display:block; margin-top:10px; color:#7c8597; font-size:11px; line-height:1.55; }
+
 @media (max-width:980px) {
   .consumer-header-inner { grid-template-columns:1fr auto; }.consumer-nav,.header-start { display:none; }.consumer-menu { position:relative; display:block; }
   .consumer-menu summary { display:grid; place-items:center; width:42px; height:42px; cursor:pointer; list-style:none; border:1px solid #cbd9ec; border-radius:13px; background:white; color:#174ea6; }.consumer-menu summary::-webkit-details-marker { display:none; }.consumer-menu summary svg { width:19px; height:19px; }
@@ -191,7 +203,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   .welcome-stage { min-height:auto; padding-top:68px; }.welcome-copy h1 { font-size:clamp(44px,6.5vw,62px); }
 }
 @media (max-width:760px) {
-  .consumer-header-inner { height:64px; padding:0 18px; }.consumer-brand>span { width:34px; height:34px; border-radius:11px; }
+  .consumer-header-inner { height:64px; padding:0 18px; }.brand-wordmark strong { font-size:19px; }
   .level-hero { gap:36px; padding:48px 20px 68px; }.level-hero::before { top:430px; right:-160px; width:430px; height:430px; }.level-hero::after { display:none; }.level-intro h1 { font-size:40px; }.level-intro>p { font-size:16px; }.level-intro ul { gap:8px 14px; margin-top:20px; }
   .level-finder { padding:24px 18px; border-radius:22px; }.finder-progress { align-items:flex-start; flex-direction:column; gap:5px; padding-bottom:15px; }.finder-help { margin-top:17px; }.finder-options button { grid-template-columns:36px minmax(0,1fr) 16px; gap:11px; min-height:96px; padding:14px 12px; }.finder-options strong { font-size:13px; }.level-finder.result-state { min-height:0; }.result-main h2 { font-size:31px; }.result-facts { grid-template-columns:1fr; }.result-facts>div { display:grid; grid-template-columns:76px 1fr; gap:10px; align-items:start; }.result-facts dd { margin-top:0; }.result-route ol { align-items:flex-start; flex-direction:column; }.result-route li>svg { transform:rotate(90deg); }.finder-primary { min-height:50px; }
   .project-route-section { padding:64px 20px 72px; }.project-route-heading h2 { font-size:34px; }.project-route-list { margin-top:30px; }.project-route-list>a { grid-template-columns:38px 1fr auto; gap:12px; min-height:0; padding:22px 0; }.route-icon { width:38px; height:38px; border-radius:12px; }.route-icon svg { width:17px; height:17px; }.project-route-list a>div { grid-column:1/-1; padding-left:50px; }.route-action { grid-row:1; grid-column:3; }.project-route-list h3 { font-size:18px; }.project-route-list p { font-size:12px; }.project-route-list>a:hover { padding-right:0; padding-left:0; background:white; }
@@ -201,7 +213,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   .goal-section { padding:62px 20px 68px; }.section-heading { align-items:flex-start; flex-direction:column; gap:20px; }.section-heading h2 { font-size:34px; }
   .goal-lane { grid-template-columns:48px 1fr; gap:16px; padding:21px 18px; border-radius:19px; }.goal-icon { width:48px; height:48px; border-radius:15px; }.goal-action { grid-column:2; justify-self:start; }
   .first-project { grid-template-columns:1fr; gap:38px; padding:72px 20px; }.project-invite { grid-template-columns:1fr; }.project-invite h3 { font-size:34px; }.project-ticket { padding:24px; }.project-links { grid-column:auto; padding-left:0; }
-  .consumer-footer-inner { align-items:flex-start; flex-direction:column; padding:48px 20px; }.footer-links { justify-content:start; }
+  .consumer-footer-inner { align-items:flex-start; flex-direction:column; padding:48px 20px; }.footer-promise { align-items:flex-start; flex-direction:column; gap:14px; }.footer-links { justify-content:start; }
   .friendly-page-hero h1 { font-size:40px; }.friendly-page-hero::after { top:20px; right:-45px; width:130px; height:70px; }.friendly-project-list>a { padding:20px; }
   .topic-section-heading { grid-template-columns:1fr; gap:18px; }.topic-section-heading h2 { font-size:34px; }.starter-list { margin-top:28px; border-radius:18px; }.starter-list a { grid-template-columns:42px 1fr; gap:15px; min-height:0; padding:20px 17px; }.starter-index { width:40px; height:40px; border-radius:13px; }.starter-action { grid-column:2; }.topic-picker { margin-top:68px; padding-top:56px; }.topic-groups { margin-top:28px; }.topic-group summary { grid-template-columns:36px minmax(0,1fr) 18px; gap:10px; min-height:94px; padding:14px 4px; }.group-count { display:none; }.topic-group summary strong { font-size:16px; }.group-topics { margin-left:0; }.group-topics>a { grid-template-columns:30px minmax(0,1fr) 16px; gap:11px; padding:15px 13px; }.topic-time { display:none; }.topic-experiment-note { align-items:flex-start; line-height:1.6; }
+  .project-page-intro-inner { padding:18px 20px 20px; }.project-page-title { grid-template-columns:1fr; gap:11px; margin-top:14px; }.project-page-title h1 { font-size:36px; }.project-page-title>div>span { display:none; }.project-page-title aside { max-width:none; padding:10px 12px; border-left-width:3px; }.project-page-title aside small,.project-page-title aside strong { display:inline; }.project-page-title aside small { margin-right:6px; }.project-guide-section { padding-top:24px; }.project-agent-task { padding:18px 16px; border-radius:16px; }.project-agent-task-heading { align-items:flex-start; flex-direction:column; gap:14px; }.project-agent-task-heading button { width:100%; }.project-agent-task-copy { margin-top:15px; padding:14px; font-size:13px; }
 }

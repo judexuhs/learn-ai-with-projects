@@ -135,14 +135,28 @@ export function ProjectGuide({ project }: { project: Project }) {
       </aside>
 
       <article key={current.id} className="min-w-0">
-        <header className="border-b border-black/[.08] pb-8">
+        <header className="pb-6">
           <p className="text-sm font-medium text-sky-700">第 {currentIndex + 1} 步，共 {project.steps.length} 步</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">{current.title}</h2>
-          <div className="mt-6 rounded-lg bg-sky-50 px-4 py-4 sm:px-5">
+          <div className="mt-5 rounded-lg bg-sky-50 px-4 py-3.5 sm:px-5">
             <p className="text-xs font-medium text-sky-700">做完这一步，你会得到</p>
             <p className="mt-1.5 text-base font-medium leading-7 text-sky-950">{current.outcome}</p>
           </div>
         </header>
+
+        <section className="project-agent-task" aria-labelledby="agent-task-heading">
+          <div className="project-agent-task-heading">
+            <div>
+              <p>先做这个</p>
+              <h3 id="agent-task-heading">把下面这段话发给 Agent</h3>
+            </div>
+            <Button onClick={copyTask}>
+              {copied ? <Check /> : <Clipboard />}{copied ? '已经复制' : '复制任务'}
+            </Button>
+          </div>
+          <p className="project-agent-task-copy">{current.task}</p>
+          <small>复制后，打开 WorkBuddy、Codex 或你正在用的 Agent，粘贴并发送。</small>
+        </section>
 
         <section className="py-8">
           <div className="flex items-end justify-between gap-4">
@@ -191,18 +205,6 @@ export function ProjectGuide({ project }: { project: Project }) {
         </section>
 
         <div className="border-t border-black/[.08] py-2">
-          <details className="group border-b border-black/[.08] py-1">
-            <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm font-medium marker:content-none">
-              需要 AI 帮你时，复制这段任务
-              <ChevronRight className="size-4 text-slate-400 transition-transform group-open:rotate-90" />
-            </summary>
-            <div className="pb-5">
-              <div className="rounded-lg bg-slate-50 p-4 text-sm leading-7 text-slate-700">{current.task}</div>
-              <Button variant="outline" size="sm" className="mt-3" onClick={copyTask}>
-                {copied ? <Check /> : <Clipboard />}{copied ? '已复制' : '复制任务'}
-              </Button>
-            </div>
-          </details>
           <details className="group border-b border-black/[.08] py-1">
             <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm font-medium marker:content-none">
               想知道为什么这样做
